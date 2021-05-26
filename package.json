@@ -1,0 +1,14 @@
+{
+    "name": "explorando_marte",
+    "version": "0.1.0",
+    "description": "Probe Test",
+    "main": "index.js",
+    "scripts": {
+        "probe": "node index.js input.txt",
+        "test": "jest"
+    },
+    "author": "Roger Santos",
+    "devDependencies": {
+        "jest": "^27.0.1"
+    }
+}
