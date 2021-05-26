@@ -9,7 +9,7 @@ module.exports = class Plateau {
         this.createPlateau();
     }
 
-    landing() {
+    init() {
         let result = "";
         this.probe.forEach((probe) => {
             result += probe.startEngine();
@@ -30,6 +30,22 @@ module.exports = class Plateau {
         for (let i = 0; i < this.Y; i++) {
             this.mesh[i] = x.slice(0);
         }
+    }
+
+    addProbe(probe) {
+        this.probe.set(probe.name, probe);
+        this.updateMesh(probe.name, probe.position[0], probe.position[1]);
+    }
+
+    updateMesh(probeName, x, y) {
+        for (let i = 0; i < this.X; i++) {
+            for (let j = 0; j < this.Y; j++) {
+                if (this.mesh[i][j] === probeName) {
+                    this.mesh[i][j] = " ";
+                }
+            }
+        }
+        this.mesh[(this.Y - y)][x - 1] = probeName;
     }
 
 }
