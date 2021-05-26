@@ -11,6 +11,7 @@ module.exports = class Probe {
 
     getProbePosition(command) {
         let probePosition = command.split(" ");
+        //Returns the position x y direction as an array
         return [parseInt(probePosition[0]), parseInt(probePosition[1]), probePosition[2]];
     }
 
@@ -21,6 +22,7 @@ module.exports = class Probe {
         } else if (command == "R") {
             cardinalIndex = (cardinalIndex + 1) % 4;
         }
+        //Calculates the index based on the direction per mod 4
         this.facing = this.directions[cardinalIndex];
     }
 
@@ -37,6 +39,7 @@ module.exports = class Probe {
             } else if (this.facing == "W") {
                 coordinateX--;
             }
+            //If moving, set the direction based on the face
         } else {
             console.log("incorrect command");
         }
@@ -55,6 +58,7 @@ module.exports = class Probe {
         }
         let result = this.position[0] + " " + this.position[1] + " " + this.facing;
         console.log(result);
+        //Prints on the console the position calculated based on the commands and returns for use in the tests
         return result;
     }
 }
